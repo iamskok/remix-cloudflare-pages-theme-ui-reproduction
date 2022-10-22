@@ -11,7 +11,7 @@ import {
 import { ThemeProvider } from "@theme-ui/core";
 import type { ReactNode } from "react";
 import { useContext, useEffect } from "react";
-
+import { Theme } from '@theme-ui/core';
 import { ServerStyleContext, ClientStyleContext } from "./styles/context";
 
 export const meta: MetaFunction = () => ({
@@ -59,10 +59,32 @@ const Document = withEmotionCache(
   }
 );
 
+const theme: Theme = {
+  colors: {
+    text: '#111',
+    primary: 'red',
+    secondary: 'green',
+    background: '#eee'
+  },
+  buttons: {
+    primary: {
+      color: 'background',
+      bg: 'primary',
+      '&:hover': {
+        bg: 'text',
+      }
+    },
+    secondary: {
+      color: 'background',
+      bg: 'secondary',
+    },
+  },
+}
+
 export default function App() {
   return (
     <Document>
-      <ThemeProvider theme={{ colors: { primary: "#33e" } }}>
+      <ThemeProvider theme={theme}>
         <Outlet />
       </ThemeProvider>
     </Document>

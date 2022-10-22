@@ -5,6 +5,8 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
+    // https://theme-ui.com/guides/jsx-pragma#using-typescript
+    "jsxImportSource": "@theme-ui/core",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "target": "ES2019",
