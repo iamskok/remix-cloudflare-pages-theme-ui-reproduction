@@ -4,6 +4,8 @@ const GlobalsPolyfills =
   require("@esbuild-plugins/node-globals-polyfill").default;
 
 withEsbuildOverride((option, { isServer }) => {
+  // https://github.com/evanw/esbuild/issues/2328#issuecomment-1159258064
+  option.logOverride = { "this-is-undefined-in-esm": "silent" }
   option.jsxFactory = "jsx";
   option.inject = [path.resolve(__dirname, "reactShims.ts")];
 
